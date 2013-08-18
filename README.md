@@ -1,23 +1,24 @@
 
-
 ## phpdoc
+
+### setup
+
+**Require packages**
+- [GraphViz](http://www.graphviz.org/Download_macos.php)
 
 ### Reference
 see: [http://www.phpdoc.org/docs/latest/index.html](http://www.phpdoc.org/docs/latest/index.html).
 
 ### variable types
 
-|type   |Description|
-|:------|:----------|
-|integer|整数値|
-|string |文字列|
-|bool   |真偽値|
-|string[]|stringタイプの配列|
-|int[string]| key:string, value:int の連想配列|
-|mixed[]|複数タイプが混在する配列|
-|int[][]| 2次元多重配列|
+|type             |Description                          |
+|:----------------|:------------------------------------|
+|integer          |整数値                               |
+|string           |文字列                               |
+|bool             |真偽値                               |
+|array            |配列 or 連想配列                     |
 |Some\My\HogeClass|Some\My\HogeClassクラスのインスタンス|
-|string&#124;bool|文字列または真偽値|
+|string&#124;bool |文字列または真偽値                   |
 
 ### annotations
 
@@ -45,13 +46,14 @@ phpdocに関するアノテーションは以下のもののみ使用。
 @param [type] [name] ([description])
 
 関数のパラメータを表す。
+descriptionは書いてあるべき。
 
 ```
 
 ```php
 
     /**
-     * Set age property
+     * Set age property.
      * 
      * @param int $age User's age
      */
@@ -60,7 +62,7 @@ phpdocに関するアノテーションは以下のもののみ使用。
      }
      
     /**
-     * Set optional data
+     * Set optional data.
      * 
      * @param mixed[string] $options Optional data
      */
@@ -70,9 +72,48 @@ phpdocに関するアノテーションは以下のもののみ使用。
      
 ```
 
+#### @return
+
+```
+@return [type] ([description])
+
+関数の戻り値を表す。
+descriptionは書いてあることが望ましい。
+
+```
+
+```php
+
+    /**
+     * Get user's age
+     * 
+     * @return int User's age
+     */
+     public function getAge() {
+         return $this->age;
+     }
+     
+```
 
 
+#### @var
 
+```
+@var [type] ([description])
+
+変数の説明。
+メンバ変数には必ず付けること。
+descriptionは書いてあることが望ましい。
+```
+
+```php
+
+    /**
+     * @var int User's age.
+     */
+    protected $age;
+     
+```
 
 
 
