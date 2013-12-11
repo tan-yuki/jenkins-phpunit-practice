@@ -6,4 +6,4 @@ php ./composer.phar install
 
 # execute phpunit
 cd ${WORKSPACE}/
-php ./vendor/bin/phpunit --log-tap=phpunit.tap ./test
+php ./vendor/bin/phpunit --log-junit=phpunit-result.xml ./test
