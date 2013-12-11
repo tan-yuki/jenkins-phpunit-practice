@@ -6,6 +6,6 @@ class MyUtilTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(3, MyUtil::add(1, 2));
     }
     public function testAdd_2() {
-        $this->assertEquals(4, MyUtil::add(2, 2));
+        $this->assertEquals(5, MyUtil::add(2, 2));
     }
 }
