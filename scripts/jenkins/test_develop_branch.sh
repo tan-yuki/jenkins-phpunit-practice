@@ -35,6 +35,6 @@ if [ $? -ne 0 ]; then
   # Get Chatwork mention tag
   mention_tag=`php ${WORKSPACE}/scripts/jenkins/_get_mention_tag.php ${committer_name}`
 
-  body="${mention_tag} [info][title] developブランチでのテストに失敗しました[/title]commit: https://github.com/${GITHUB_REPO}/commit/${head_sha} [hr]`egrep '^ |^not' ${WORKSPACE}/phpunit-result.tap`[/info]"
+  body="${mention_tag} [info][title] developブランチでのテストに失敗しました[/title]`egrep '^ |^not' ${WORKSPACE}/phpunit-result.tap`[/info]"
   curl -sX POST -H "X-ChatWorkToken: ${CHATWORK_API_TOKEN}" -d "body=${body}" "https://api.chatwork.com/v1/rooms/${ROOM_ID}/messages"
 fi
